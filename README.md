@@ -27,5 +27,4 @@ You can install the development version of cypress from [GitHub](https://github.
 
 ```
 
-``cypress`` is under review from Bioconductor.
-
+``cypress`` is currently on Bioconductor at https://bioconductor.org/packages/cypress/.
