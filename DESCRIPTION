@@ -1,14 +1,14 @@
 Package: cypress
 Type: Package
 Title: Cell-Type-Specific Power Assessment
-Version: 1.0.0
+Version: 0.99.20
 Date: 2024-04-03
 Authors@R: c(person("Shilin", "Yu", role=c("aut", "cre"),email=
   "sy597@georgetown.edu",comment=c(ORCID="0000-0002-5494-1960")),
             person("Guanqun", "Meng", role="aut",email="gxm324@case.edu"),
             person("Wen", "Tang", role="aut",email="wxt175@case.edu"))
 License: GPL-2 | GPL-3
-Depends: R(>= 4.3.0)
+Depends: R(>= 4.4.0)
 Imports: stats, abind, sirt,lubridate, MASS,TOAST, e1071,tibble, BiocStyle,
   parallel, preprocessCore, SummarizedExperiment, TCA, PROPER, methods,dplyr, 
   utils, RColorBrewer, Biobase, graphics, edgeR, BiocParallel, checkmate, mvtnorm
