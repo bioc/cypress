@@ -13,7 +13,6 @@ exportMethods("getcypress", "setcypress")
 
 import('dplyr')
 import('TOAST')
-import('BiocStyle')
 
 
 importFrom('mvtnorm',"dmvnorm")
