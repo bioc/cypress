@@ -13,17 +13,8 @@ exportMethods("getcypress", "setcypress")
 
 import('dplyr')
 import('TOAST')
+import('BiocStyle')
 
-#import('mvtnorm')
-#import('sirt')
-#import('lubridate')
-#import('BiocParallel')
-#import('abind')
-#import('SummarizedExperiment')
-#import('parallel')
-
-#import('TCA')
-#importFrom('TOAST',"mvrnorm")
 
 importFrom('mvtnorm',"dmvnorm")
 importFrom('sirt',"dirichlet.mle","dirichlet.simul")

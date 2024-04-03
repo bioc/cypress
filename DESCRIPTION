@@ -8,8 +8,8 @@ Authors@R: c(person("Shilin", "Yu", role=c("aut", "cre"),email=
             person("Guanqun", "Meng", role="aut",email="gxm324@case.edu"),
             person("Wen", "Tang", role="aut",email="wxt175@case.edu"))
 License: GPL-2 | GPL-3
-Depends: R(>= 4.4.0)
-Imports: stats, abind, sirt,lubridate, MASS,TOAST, e1071,tibble, 
+Depends: R(>= 4.3.0)
+Imports: stats, abind, sirt,lubridate, MASS,TOAST, e1071,tibble, BiocStyle,
   parallel, preprocessCore, SummarizedExperiment, TCA, PROPER, methods,dplyr, 
   utils, RColorBrewer, Biobase, graphics, edgeR, BiocParallel, checkmate, mvtnorm
 Suggests: knitr, rmarkdown, MatrixGenerics, htmltools, RUnit, BiocGenerics, BiocManager
