@@ -8,7 +8,8 @@ simFromData(INPUTdata = NULL, CT_index = NULL, CT_unk = FALSE,
             n_sim = 3, n_gene = 30000, DE_pct = 0.05,
             ss_group_set = c(10, 20, 50, 100),
             lfc_set = c(0, 0.5, 1, 1.5, 2),
-            lfc_target = 0.5, fdr_thred = 0.1, BPPARAM=bpparam())
+            lfc_target = 0.5, fdr_thred = 0.1,
+            DEmethod = "TOAST",BPPARAM=bpparam())
 }
 \arguments{
 \item{INPUTdata}{The input SE (SummarizedExperiment) object should contain a
@@ -32,10 +33,9 @@ the CT_unk should be True if the user did not provide this matrix}
   \item{lfc_target}{Target effect size, should be greater than or equal to 0.
   The absolute LFC lower than this values will be treated as None-DEGs.
   Default to 0.5}
-  \item{fdr_thred}{Adjusted p value threshold, should not below 0 or exceed 1.
-  default to 0.1}
-   \item{BPPARAM}{ An instance of \code{BiocParallelParam} class, e.g. MulticoreParam, SnowParam, SerialParam, to facilitate parallel computing. If using Unix, MulticoreParam is recommended. Customized options within \code{BiocParallelParam} class is allowed. If not specified, the default back-end is retrieve.
-}
+  \item{fdr_thred}{Adjusted p value threshold, should not below 0 or exceed 1. default to 0.1}
+  \item{DEmethod}{DE methods are avaliable for 'TOAST', 'DESeq2', and 'CEDAR'.}
+   \item{BPPARAM}{ An instance of \code{BiocParallelParam} class, e.g. MulticoreParam, SnowParam, SerialParam, to facilitate parallel computing. If using Unix, MulticoreParam is recommended. Customized options within \code{BiocParallelParam} class is allowed. If not specified, the default back-end is retrieve.}
 }
 
 \value{
@@ -68,10 +68,9 @@ estimation purposes.
 \examples{
 \donttest{
 data(ASD_prop_se)
-result <- simFromData(INPUTdata = ASD_prop, CT_index = (seq_len(6) + 2), CT_unk = FALSE,
-                      n_sim = 2,n_gene = 1000, DE_pct = 0.05,
-                      ss_group_set = c(8,10),
-                      lfc_set = c(1, 1.5))
+result <- simFromData(INPUTdata = ASD_prop, CT_index = (seq_len(6) + 2),
+CT_unk = FALSE, n_sim = 2,n_gene = 1000, DE_pct = 0.05,
+ ss_group_set = c(8,10),  lfc_set = c(1, 1.5))
                       }
 }
 \author{

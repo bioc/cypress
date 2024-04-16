@@ -2,7 +2,7 @@
 csRNA_seq_sim <- function(i,n_gene,DE_pct,ncell_type,lfc_mean,lfc_sd,
                           health_lmean_m,health_lmean_d,lod_m,lod_d,
                           nsample_each_group,lfc_target,fdr_thred,top_g,
-                          health_alpha,case_alpha,n_strata){
+                          health_alpha,case_alpha,n_strata,DEmethod){
   lfc_ct_mtx <- lfc_simulator(n_gene, DE_pct, ncell_type,
                               lfc_mean, lfc_sd)
   cs_ref_panel_all <- cs_ref_panel_simulator(ncell_type, n_gene,
@@ -25,7 +25,7 @@ csRNA_seq_sim <- function(i,n_gene,DE_pct,ncell_type,lfc_mean,lfc_sd,
   sample_CT_prop <- do.call(rbind, cell_prop_list)
   RNAseq_final_count <- do.call(cbind, cellT_expr_count_list)
   ## Deconvolution
-  refinx <- findRefinx(cellT_expr_healthy, nmarker = 1000, sortBy = "cv")
+  refinx <- TOAST::findRefinx(cellT_expr_healthy, nmarker = 1000, sortBy = "cv")
   ctrl_est_prop <- perform_deconvolution(cellT_expr_healthy,"control",
                                          RNAseq_final_count,refinx,ncell_type)
   case_est_prop <- perform_deconvolution(cellT_expr_case,"case",
@@ -33,11 +33,28 @@ csRNA_seq_sim <- function(i,n_gene,DE_pct,ncell_type,lfc_mean,lfc_sd,
   est_CT_prop <- rbind(ctrl_est_prop, case_est_prop)
   est_CT_prop <- est_CT_prop[rownames(sample_CT_prop),]
   gene_CT_DE_connect <- gt_organizer(RNAseq_final_count, lfc_ct_mtx, ncell_type)
+
+
+
   ## TOAST Implementation.
-  sim_res_TOAST_strata <- run_TOAST(nsample_each_group,
-                                    est_CT_prop,RNAseq_final_count)
-  TOAST_out <- summary_TOAST(sim_res_TOAST_strata,ncell_type)
-  gene_CT_FDR <- merge(TOAST_out, gene_CT_DE_connect, by = "gene_id")
+  gene_CT_FDR <- switch(DEmethod,
+                        "DESeq2" = DESeq2_imple_part(nsample_each_group, est_CT_prop, RNAseq_final_count,
+                                                     ncell_type, gene_CT_DE_connect),
+                        "TOAST" = TOAST_imple_part(nsample_each_group, est_CT_prop, RNAseq_final_count,
+                                                   ncell_type, gene_CT_DE_connect),
+                        "CEDAR" = cedar_imple_part(nsample_each_group, est_CT_prop, RNAseq_final_count,
+                                                   ncell_type, gene_CT_DE_connect),
+                        stop("Invalid DEmethod specified. Choose 'DESeq2', 'TOAST', or 'CEDAR'.")
+  )
+
+  # sim_res_TOAST_strata <- run_TOAST(nsample_each_group,
+  #                                   est_CT_prop,RNAseq_final_count)
+  #
+  # TOAST_out <- summary_TOAST(sim_res_TOAST_strata,ncell_type)
+  # gene_CT_FDR <- merge(TOAST_out, gene_CT_DE_connect, by = "gene_id")
+
+
+
   ## Metric Implementations
   gene_CT_FDR <- cbind(gene_CT_FDR,
                        DE_CT_bio = ifelse(abs(gene_CT_FDR$LFC) < lfc_target, 0,

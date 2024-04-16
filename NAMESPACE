@@ -13,14 +13,12 @@ exportMethods("getcypress", "setcypress")
 
 import('dplyr')
 import('TOAST')
-
-
+import('DESeq2')
+importFrom('rlang', "!!",":=")
 importFrom('mvtnorm',"dmvnorm")
 importFrom('sirt',"dirichlet.mle","dirichlet.simul")
-importFrom('lubridate',"Date")
 importFrom('BiocParallel',"bplapply", "bpparam")
 importFrom('SummarizedExperiment',"colData","assay")
-
 importFrom('abind',"abind")
 importFrom('parallel',"mclapply")
 importFrom('TCA',"tca", "tensor")
@@ -31,7 +29,8 @@ importFrom('PROPER',"estParam")
 importFrom('edgeR',"DGEList", "estimateTagwiseDisp", "estimateCommonDisp","estimateTrendedDisp")
 importFrom("methods", "new","validObject","show", "slot","slotNames","setGeneric","is", "slot<-")
 importFrom("checkmate", "assertString")
-importFrom("stats", "cor", "median", "quantile", "rgamma", "rnorm", "rpois", "sd","cov")
+importFrom("stats", "cor", "median", "quantile", "rgamma", "rnorm", "rpois",
+          "formula", "as.formula", "sd","cov")
 importFrom("utils", "head","data")
 importFrom('RColorBrewer','brewer.pal')
 importFrom('graphics','matplot','axis','legend','par')

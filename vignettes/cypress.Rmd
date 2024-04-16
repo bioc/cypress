@@ -9,7 +9,7 @@ author:
   email: gxm324@case.edu
 - name: Wen Tang
   affiliation: Department of Population and Quantitative Health Sciences, Case Western Reserve University
-
+  email: wxt175@case.edu
 package: cypress
 output:
   BiocStyle::html_document

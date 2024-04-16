@@ -3,6 +3,7 @@
 ## The following two functions are to organize TOAST outputs, which are lists.
 ## The last function was used as lapply input for the second function, which
 ## serves as summarization purposes.
+
 run_TOAST <- function(nsample_each_group,est_CT_prop,RNAseq_final_count) {
   ncell_type <- ncol(est_CT_prop)
   sim_design <- as.data.frame(factor(rep(c(1,2),nsample_each_group)))
@@ -14,6 +15,9 @@ run_TOAST <- function(nsample_each_group,est_CT_prop,RNAseq_final_count) {
                                  cell_type = NULL, verbose = FALSE, sort = TRUE)
   return(sim_res_TOAST_strata)
 }
+
+
+
 summary_TOAST <- function(sim_res_TOAST_strata,ncell_type){
   TOAST_out_name <- names(sim_res_TOAST_strata[seq_len(ncell_type)])
   TOAST_out <- lapply(seq_len(ncell_type), pull_TOAST,sim_res_TOAST_strata)

@@ -169,7 +169,7 @@ quantile1 <- quantile(as.matrix(final_count), probs = c(lower_prop, upper_prop))
 
   Rowfilter <- which(apply(final_count, 1,
                            function(x) all(x < min(quantile1[[2]], 100000 )  ) ) )
-  Rowfilter1<-findRefinx(as.matrix(final_count),
+  Rowfilter1<-TOAST::findRefinx(as.matrix(final_count),
                          nmarker =  round(0.5*nrow(final_count) ))
   return(final_count[intersect(Rowfilter,Rowfilter1),])
 

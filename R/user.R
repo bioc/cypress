@@ -5,7 +5,8 @@ simFromData<- function(INPUTdata = NULL, CT_index = NULL,CT_unk=FALSE,
                         n_sim = 3, n_gene = 30000, DE_pct = 0.05,
                         ss_group_set = c(10, 20, 50, 100),
                         lfc_set = c(0, 0.5, 1, 1.5, 2),
-                        lfc_target = 0.5, fdr_thred = 0.1,BPPARAM=bpparam()){
+                        lfc_target = 0.5, fdr_thred = 0.1,
+                       DEmethod="TOAST",BPPARAM=bpparam()){
 
   if (!is(INPUTdata, "SummarizedExperiment")) {
     stop("INPUTdata must be a SummarizedExperiment object.")
@@ -41,7 +42,7 @@ simFromData<- function(INPUTdata = NULL, CT_index = NULL,CT_unk=FALSE,
                              lfc_set = lfc_set,
                              sim_param = estimate_all,
                              lfc_target = lfc_target, fdr_thred = fdr_thred,
-                            BPPARAM=BPPARAM)
+                             DEmethod=DEmethod,BPPARAM=BPPARAM)
 
   return(power_long)
 }
@@ -52,7 +53,7 @@ simFromParam<- function(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
                          ss_group_set = c(10, 20, 50, 100),
                          lfc_set = c(0, 0.5, 1, 1.5, 2),
                          sim_param="IAD",lfc_target = 0.5, fdr_thred = 0.1,
-                        BPPARAM=bpparam()){
+                        DEmethod="TOAST",BPPARAM=bpparam()){
 
 
   if (!is.numeric(n_sim) || length(n_sim) != 1 || n_sim < 2) {
@@ -78,7 +79,7 @@ simFromParam<- function(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
                                 lfc_set = lfc_set,
                                 sim_param = GSE60424_param,
                                 lfc_target = lfc_target, fdr_thred = fdr_thred,
-                                BPPARAM=BPPARAM)
+                                DEmethod=DEmethod,BPPARAM=BPPARAM)
   } else if (sim_param == "IBD") {
     ibd_prop_param <- NULL
     data(list = 'quickParaIBD', envir = environment())
@@ -88,7 +89,7 @@ simFromParam<- function(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
                                 lfc_set = lfc_set,
                                 sim_param = ibd_prop_param,
                                 lfc_target = lfc_target, fdr_thred = fdr_thred,
-                                BPPARAM=BPPARAM)
+                                DEmethod=DEmethod ,BPPARAM=BPPARAM)
   }
    else if (sim_param == "ASD") {
       asd_noprop_param <- NULL
@@ -99,7 +100,7 @@ simFromParam<- function(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
                                   lfc_set = lfc_set,
                                   sim_param = asd_noprop_param,
                                   lfc_target = lfc_target, fdr_thred = fdr_thred,
-                                  BPPARAM=BPPARAM)
+                                  DEmethod=DEmethod ,BPPARAM=BPPARAM)
 
   }
   else {

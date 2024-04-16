@@ -7,13 +7,15 @@ Changes in version 0.99.3 (2024-02-12)
 
 * debug for warning
 
-Changes in version 0.99.15 (2024-03-19)
-
-* Unit test added.
-* Coding modified in compliance with BioC requirement.
-
 Changes in version 0.99.21 (2024-04-06)
 
 * Coding modified in compliance with BioC requirement.
+
+Changes in version 0.99.23 (2024-04-15)
+
+* update new methods for cedar and deseq2
+
+
+
 
 

@@ -1,20 +1,22 @@
 Package: cypress
 Type: Package
 Title: Cell-Type-Specific Power Assessment
-Version: 0.99.21
-Date: 2024-04-06
-Authors@R: c(person("Shilin", "Yu", role=c("aut", "cre"),email=
+Version: 0.99.23
+Date: 2024-04-15
+Authors@R: c( person("Shilin", "Yu", role=c("aut", "cre"),email=
   "sy597@georgetown.edu",comment=c(ORCID="0000-0002-5494-1960")),
             person("Guanqun", "Meng", role="aut",email="gxm324@case.edu"),
             person("Wen", "Tang", role="aut",email="wxt175@case.edu"))
 License: GPL-2 | GPL-3
 Depends: R(>= 4.4.0)
-Imports: stats, abind, sirt,lubridate, MASS,TOAST, e1071,tibble, 
+Imports: stats, abind, sirt, MASS,TOAST, tibble, 
   parallel, preprocessCore, SummarizedExperiment, TCA, PROPER, methods,dplyr, 
-  utils, RColorBrewer, Biobase, graphics, edgeR, BiocParallel, checkmate, mvtnorm
-Suggests: knitr, rmarkdown, MatrixGenerics, htmltools, RUnit, BiocGenerics, BiocManager, BiocStyle
+  utils, RColorBrewer, graphics, edgeR, BiocParallel, checkmate, 
+  mvtnorm,  DESeq2, rlang, e1071
+Suggests: knitr, rmarkdown, MatrixGenerics, htmltools, RUnit, BiocGenerics, 
+  BiocManager, BiocStyle, Biobase
 Collate: AllClasses.R AllGenerics.R CIBERSORT.R csRNA_seq_sim.R cypress_design.R 
- cypress_wrapper.R cypressEmbedded.R metrics.R cypress-methods.R PlotTDR.R
+ cypress_wrapper.R cypressEmbedded.R metrics.R cypress-methods.R PlotTDR.R DE_arg.R
  TOAST_implement.R user.R util_datasim.R util_EST.R PlotFDC.R PlotPower.R 
 biocViews: Software, GeneExpression, DataImport, RNASeq, Sequencing
 Description: CYPRESS is a cell-type-specific power tool. This package aims to 

@@ -43,12 +43,13 @@ test_sim <- function() {
 
   test <- simFromData(INPUTdata = ASD_prop, CT_index = length_ct, CT_unk = FALSE,
                         n_sim = nsim,n_gene = 1000, DE_pct = 0.05,
-                        ss_group_set = ss_groupset,
+                        ss_group_set = ss_groupset,DEmethod="DESeq2",
                         lfc_set = c(1, 1.5))
 
   test2 <- simFromParam(sim_param="IAD",n_sim = 2,DE_pct = 0.05,n_gene = 1000,
                          ss_group_set = c(8, 10),
-                         lfc_set = c(1, 1.5),
+                         lfc_set = c(1, 1.5),DEmethod="CEDAR",
+                        BPPARAM=BiocParallel::SerialParam(),
                          lfc_target = 0.5, fdr_thred = 0.1)
 
 
