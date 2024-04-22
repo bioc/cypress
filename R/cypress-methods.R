@@ -37,7 +37,6 @@ setMethod(f = "show", signature = "est_out",
 
 ## accessor
 
-
 setMethod("getcypress", "cypress_out", function(object, name) {
   slot(object, name)
 })

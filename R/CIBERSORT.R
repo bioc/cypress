@@ -1,10 +1,6 @@
 
 ## License: http://cibersort.stanford.edu/CIBERSORT_License.txt
 
-
-
-
-
 CoreAlg <- function(X, y, absolute, abs_method){
 
 
@@ -62,7 +58,6 @@ doPerm <- function(perm, X, Y, absolute, abs_method){
     result <- CoreAlg(X, yr, absolute, abs_method)
 
     mix_r <- result$mix_r
-
     ## store correlation
     if(itor == 1) {dist <- mix_r}
     else {dist <- rbind(dist, mix_r)}

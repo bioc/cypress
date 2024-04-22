@@ -26,7 +26,8 @@ simFromParam(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
     The absolute LFC lower than this value will be treated as None-DEGs.
     Default to 0.5}
   \item{fdr_thred}{Adjusted p value threshold, should not be below 0 or exceed 1.  default to 0.1}
-  \item{DEmethod}{DE methods are avaliable for 'TOAST', 'DESeq2', and 'CEDAR'.}
+  \item{DEmethod}{Differential expression (DE)  methods available include 'TOAST', 'DESeq2', and 'CeDAR'.
+  The default method is 'TOAST'}
   \item{BPPARAM}{ An instance of \code{BiocParallelParam} class, e.g. MulticoreParam, SnowParam, SerialParam, to facilitate parallel computing. If using Unix, MulticoreParam is recommended. Customized options within \code{BiocParallelParam} class is allowed. If not specified, the default back-end is retrieve.}
 
 

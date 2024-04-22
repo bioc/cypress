@@ -13,7 +13,6 @@ cypress_prop_unk <- function(Y, cell_type = NULL) {
   return(est_CT_prop_T)
 }
 
-
 cypress_prop_decon <- function(final_count, design1, sample_CT_prop) {
   if (missing(final_count) | missing(design1)) {  # Check input
     stop("final_count or design1 is not provided!")

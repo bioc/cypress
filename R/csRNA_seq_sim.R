@@ -34,26 +34,15 @@ csRNA_seq_sim <- function(i,n_gene,DE_pct,ncell_type,lfc_mean,lfc_sd,
   est_CT_prop <- est_CT_prop[rownames(sample_CT_prop),]
   gene_CT_DE_connect <- gt_organizer(RNAseq_final_count, lfc_ct_mtx, ncell_type)
 
-
-
-  ## TOAST Implementation.
   gene_CT_FDR <- switch(DEmethod,
                         "DESeq2" = DESeq2_imple_part(nsample_each_group, est_CT_prop, RNAseq_final_count,
                                                      ncell_type, gene_CT_DE_connect),
                         "TOAST" = TOAST_imple_part(nsample_each_group, est_CT_prop, RNAseq_final_count,
                                                    ncell_type, gene_CT_DE_connect),
-                        "CEDAR" = cedar_imple_part(nsample_each_group, est_CT_prop, RNAseq_final_count,
+                        "CeDAR" = cedar_imple_part(nsample_each_group, est_CT_prop, RNAseq_final_count,
                                                    ncell_type, gene_CT_DE_connect),
-                        stop("Invalid DEmethod specified. Choose 'DESeq2', 'TOAST', or 'CEDAR'.")
+                        stop("Invalid DEmethod specified. Choose 'DESeq2', 'TOAST', or 'CeDAR'.")
   )
-
-  # sim_res_TOAST_strata <- run_TOAST(nsample_each_group,
-  #                                   est_CT_prop,RNAseq_final_count)
-  #
-  # TOAST_out <- summary_TOAST(sim_res_TOAST_strata,ncell_type)
-  # gene_CT_FDR <- merge(TOAST_out, gene_CT_DE_connect, by = "gene_id")
-
-
 
   ## Metric Implementations
   gene_CT_FDR <- cbind(gene_CT_FDR,

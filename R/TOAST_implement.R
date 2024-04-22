@@ -16,8 +16,6 @@ run_TOAST <- function(nsample_each_group,est_CT_prop,RNAseq_final_count) {
   return(sim_res_TOAST_strata)
 }
 
-
-
 summary_TOAST <- function(sim_res_TOAST_strata,ncell_type){
   TOAST_out_name <- names(sim_res_TOAST_strata[seq_len(ncell_type)])
   TOAST_out <- lapply(seq_len(ncell_type), pull_TOAST,sim_res_TOAST_strata)
@@ -25,6 +23,7 @@ summary_TOAST <- function(sim_res_TOAST_strata,ncell_type){
   TOAST_out <- TOAST_out[c("gene_id",TOAST_out_name)]
   return(TOAST_out)
 }
+
 pull_TOAST <- function(i,sim_res_TOAST_strata){
   TOAST_each_cell <- sim_res_TOAST_strata[[i]]
   TOAST_each_cell$gene_id <- as.numeric(rownames(TOAST_each_cell))

@@ -14,7 +14,7 @@ simFromData(INPUTdata = NULL, CT_index = NULL, CT_unk = FALSE,
 \arguments{
 \item{INPUTdata}{The input SE (SummarizedExperiment) object should contain a
 count matrix, study design, and an optional cell type proportion matrix. The
-study design should have a column named 'disease', where the control by 1 and
+study design should have a column named `disease', where the control by 1 and
 the case is indicated by 2. If provided, the cell type proportion matrix should
 sum to 1 for each sample. The cell type proportion matrix is optional,
 the CT_unk should be True if the user did not provide this matrix}
@@ -33,8 +33,8 @@ the CT_unk should be True if the user did not provide this matrix}
   \item{lfc_target}{Target effect size, should be greater than or equal to 0.
   The absolute LFC lower than this values will be treated as None-DEGs.
   Default to 0.5}
-  \item{fdr_thred}{Adjusted p value threshold, should not below 0 or exceed 1. default to 0.1}
-  \item{DEmethod}{DE methods are avaliable for 'TOAST', 'DESeq2', and 'CEDAR'.}
+  \item{fdr_thred}{Adjusted p value threshold, should not below 0 or exceed 1. Default to 0.1}
+  \item{DEmethod}{Differential expression (DE)  methods available include 'TOAST', 'DESeq2', and 'CeDAR'. The default method is 'TOAST'}
    \item{BPPARAM}{ An instance of \code{BiocParallelParam} class, e.g. MulticoreParam, SnowParam, SerialParam, to facilitate parallel computing. If using Unix, MulticoreParam is recommended. Customized options within \code{BiocParallelParam} class is allowed. If not specified, the default back-end is retrieve.}
 }
 

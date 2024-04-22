@@ -24,10 +24,8 @@
 ## exp_design
 ## 1 healthy 2 case
 
-cypress_design <- function(n_sim, n_gene, DE_pct,
-                           ncell_type, ss_group_set,
-                           lfc_set,
-                           sim_param){
+cypress_design <- function(n_sim, n_gene, DE_pct,ncell_type, ss_group_set,
+                           lfc_set, sim_param){
   if(!(n_sim > 0)) stop("Total number of iterations should be positive.")
   if(n_sim > 100) stop("Total number of iterations needs be below 100 to save computation time.")
   if(n_gene < 1000) stop("Total number of simulated genes be 1000 or above.")

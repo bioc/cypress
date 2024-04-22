@@ -1,5 +1,4 @@
-###### Below are function for user used
-
+#### Below are function for user used
 
 simFromData<- function(INPUTdata = NULL, CT_index = NULL,CT_unk=FALSE,
                         n_sim = 3, n_gene = 30000, DE_pct = 0.05,
@@ -28,11 +27,9 @@ simFromData<- function(INPUTdata = NULL, CT_index = NULL,CT_unk=FALSE,
     stop("fdr_thred must be a single numeric value greater than 0.")
   }
 
-
   if (!is.numeric(lfc_target) || lfc_target < 0) {
     stop("lfc_target must be a positive numeric value.")
   }
-
 
   estimate_all <- cypress_est(INPUTdata,CT_index,CT_unk)
 
@@ -43,7 +40,6 @@ simFromData<- function(INPUTdata = NULL, CT_index = NULL,CT_unk=FALSE,
                              sim_param = estimate_all,
                              lfc_target = lfc_target, fdr_thred = fdr_thred,
                              DEmethod=DEmethod,BPPARAM=BPPARAM)
-
   return(power_long)
 }
 
@@ -55,7 +51,6 @@ simFromParam<- function(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
                          sim_param="IAD",lfc_target = 0.5, fdr_thred = 0.1,
                         DEmethod="TOAST",BPPARAM=bpparam()){
 
-
   if (!is.numeric(n_sim) || length(n_sim) != 1 || n_sim < 2) {
     stop("n_sim must be a single numeric value and at least 2.")
   }
@@ -65,8 +60,6 @@ simFromParam<- function(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
   if (!is.numeric(fdr_thred) || length(fdr_thred) != 1 || fdr_thred <= 0) {
     stop("fdr_thred must be a single numeric value and greater than 0.")
   }
-
-
 
   if (sim_param == "IAD") {
 

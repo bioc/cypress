@@ -14,7 +14,7 @@ package: cypress
 output:
   BiocStyle::html_document
 abstract: |
-  This vignette of cypress (**c**ell-t**y**pe-s**p**ecific powe**r** ass**ess**ment), which is specifically designed to perform comprehensive power assessment for cell-type-specific differential expression (csDE) analysis using RNA-sequencing experiments. It could accept real bulk RNA-seq data as the input for parameter estimation and simulation, or use program-provided parameters to achieve the same goal. This flexible tool allows users to customize sample sizes, percentage of csDE genes, number of cell types, and effect size values. Additionally, it computes statistical power, true discovery rate (TDR), and false discovery cost (FDC) under different scenarios as results. The package also offers functions to generate basic line plots illustrating stratified power, TDR and FDC.
+  This vignette of cypress (**c**ell-t**y**pe-s**p**ecific powe**r** ass**ess**ment), which is specifically designed to perform comprehensive power assessment for cell-type-specific differential expression (csDE) analysis using RNA-sequencing experiments. It could accept real bulk RNA-seq data as the input for parameter estimation and simulation, or use program-provided parameters to achieve the same goal. This flexible tool allows users to customize sample sizes, percentage of csDE genes, number of cell types, and effect size values. Additionally, it computes statistical power, true discovery rate (TDR), and false discovery cost (FDC) under different scenarios as results. The package also offers functions to generate basic line plots illustrating stratified power, TDR and FDC. DE methods that can be used with this tool include TOAST, CeDAR, and DESeq2.
 vignette: |
   %\VignetteIndexEntry{cypress Package User's Guide}
   %\VignetteEngine{knitr::rmarkdown}
@@ -29,7 +29,7 @@ htmltools::img(
 )
 ```
 
-\tableofContents
+\tableofcontents
 
 # Background
 Bulk RNA-sequencing technology has now been routinely adopted in clinical studies to investigate transcriptome profiles alterations associated with phenotypes-of-interest. In the past several years, computational deconvolution methods were developed to solve for cell mixture proportions. More recently, identifying csDE genes has been made possible by methodology extensions of cell-type deconvolution. Currently, due to the lack of experimental design and statistical power assessment tool for csDE analysis, clinical researchers are facing difficulties in using csDE gene detection methods in practice. One of the major difficulties is to determine a proper sample sizes required for a well-powered experimental designs. In a real RNA-sequencing study, effect size, gene expression level, biological and technical variation all impact statistical power determinations. Rigorous experimental design requires the statistical power assessment method that considers these factors. However, such a method is yet to be developed.     
@@ -70,7 +70,8 @@ result1 <- simFromData(INPUTdata=ASD_prop, #SummarizedExperiment object.
                       n_gene=1000,  #Total number of genetic features users with to conduct.
                       DE_pct=0.05, #Percentage of DEG on each cell type.
                       ss_group_set=c(8,10), #Sample sizes per group users wish to simulate.
-                      lfc_set=c(1,1.5) #Effect sizes users wish to simulate
+                      lfc_set=c(1,1.5), #Effect sizes users wish to simulate
+                      DEmethod = "TOAST" # DE methods we used
                       )
 ```
 
@@ -104,7 +105,7 @@ plotFDC(simulation_results=result2,
 # Input data
 There are 3 options for users to utilize cypress functions for parameter estimation and simulation:
 
-**Option 1**: Users wish to use their own real data for estimating parameters. This situation fits well to research project where a small pilot RNA-seq dataset has been collected, and the users want to use the information embedded in the pilot dataset to conduct rigorous experimental design. The input file needs to be organized into a ``SummarizedExperiment`` object. The object should contain a feature by sample count matrix stored in the `counts` slot. It should also use the first column in the `colData` slot with a column name of 'disease' to store the group status (i.e. case/control), where the controls are indicated by 1 and the cases are indicated by 2. The second column in the `colData` slot to stores the subject IDs mapping to each sample. The remaining columns in the `colData` slot should store the cell type proportions. If provided, the cell type proportions should sum up to 1 for each sample. This cell type proportion matrix is helpful but optional.
+**Option 1**: Users wish to use their own real data for estimating parameters. This situation fits well to research project where a small pilot RNA-seq dataset has been collected, and the users want to use the information embedded in the pilot dataset to conduct rigorous experimental design. The input file needs to be organized into a ``SummarizedExperiment`` object. The object should contain a feature by sample count matrix stored in the `counts` slot. It should also use the first column in the `colData` slot with a column name of `disease` to store the group status (i.e. case/control), where the controls are indicated by 1 and the cases are indicated by 2. The second column in the `colData` slot to stores the subject IDs mapping to each sample. The remaining columns in the `colData` slot should store the cell type proportions. If provided, the cell type proportions should sum up to 1 for each sample. This cell type proportion matrix is helpful but optional.
 
 
 ```{r, eval=TRUE, message=FALSE, warning=FALSE}
