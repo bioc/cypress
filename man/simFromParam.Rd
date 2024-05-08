@@ -20,7 +20,7 @@ simFromParam(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
   \item{lfc_set}{effect sizes users wish to simulate. The length should be less
   than or equal to 5. Default to 0,0.5,1,1.5.}
   \item{sim_param}{ Users specify which embedded simulation parameters they wish
-  to use. By default set to 'GSE60424_param', which is a cell line specific
+  to use. By default set to 'IAD', which is a cell line specific
   data. Other options include 'IBD' data, and 'ASD' data}
   \item{lfc_target}{Target effect size, should be greater than or equal to 0.
     The absolute LFC lower than this value will be treated as None-DEGs.

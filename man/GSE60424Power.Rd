@@ -5,7 +5,7 @@
 
 \alias{quickPowerGSE60424}
 \alias{GSE60424Power}
-
+\alias{iad_param}
 
 \docType{data}
 \title{Power calculation results from GSE60424 data}
