@@ -9,19 +9,14 @@ quickPower(data = "IAD")
   Options are 'IAD', 'IBD', and 'ASD'.}
 }
 \value{
-  \item{\code{ct_TDR_bio_smry}}{ A data frame related to cell type specific
-   target TDR.}
-  \item{\code{TDR_bio_smry}}{ A data frame related to target TDR.}
-  \item{\code{ct_PWR_bio_smry}}{ A data frame related to cell type specific
-   target power.}
-  \item{\code{PWR_bio_smry}}{A data frame related to target power.}
-  \item{\code{PWR_strata_bio_smry}}{A data frame related to target power by
-   gene expression stratification.}
-  \item{\code{PWR_strata_ct_bio_smry}}{ A data frame related to cell type
-   specific target power by gene expression stratification.}
-  \item{\code{ct_FDC_bio_smry}}{ A data frame related to cell type specific
-  target FDC.}
-  \item{\code{FDC_bio_smry}}{ A data frame related to target FDC.}
+  \item{\code{ct_TDR_bio_smry}}{Cell-type-specific target TDR.}
+  \item{\code{TDR_bio_smry}}{Average target TDR.}
+  \item{\code{ct_PWR_bio_smry}}{Cell-type-specific target power.}
+  \item{\code{PWR_bio_smry}}{Average target power.}
+  \item{\code{PWR_strata_ct_bio_smry}}{Cell type specific target power by gene expression stratification.}
+  \item{\code{PWR_strata_bio_smry}}{Average target power by gene expression stratification.}
+  \item{\code{ct_FDC_bio_smry}}{Cell type specific target FDC.}
+  \item{\code{FDC_bio_smry}}{Average target FDC.}
 }
 \description{
 This function quickly outputs pre-calculated power evaluation results from three

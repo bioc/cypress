@@ -19,10 +19,10 @@ the case is indicated by 2. If provided, the cell type proportion matrix should
 sum to 1 for each sample. The cell type proportion matrix is optional,
 the CT_unk should be True if the user did not provide this matrix}
   \item{CT_index}{Column index for cell types proportion matrix in Coldata, the
-  input can be a single number (>3) when the \code{CT_unk} is T.}
+  input can also be a single number (>3) when the \code{CT_unk} is T.}
   \item{CT_unk}{Logical flag indicating whether unknown cell types are present.
   Defaults to \code{FALSE}.}
-  \item{n_sim}{Total number of iterations users wish to conduct. Default to 3}
+  \item{n_sim}{The total number of iterations users wish to conduct. Default to 3. In simulation results, it is set to 20.}
   \item{n_gene}{Total number of genetic features users with to conduct. Default
   to 30000. Must be greater than or equal to 1000.}
   \item{DE_pct}{Percentage of DEG on each cell type. Default to 0.05.}
@@ -33,20 +33,20 @@ the CT_unk should be True if the user did not provide this matrix}
   \item{lfc_target}{Target effect size, should be greater than or equal to 0.
   The absolute LFC lower than this values will be treated as None-DEGs.
   Default to 0.5}
-  \item{fdr_thred}{Adjusted p value threshold, should not below 0 or exceed 1. Default to 0.1}
+  \item{fdr_thred}{Adjusted p value threshold. The parameter value should be within the range (0, 1). Default to 0.1}
   \item{DEmethod}{Differential expression (DE)  methods available include 'TOAST', 'DESeq2', and 'CeDAR'. The default method is 'TOAST'}
    \item{BPPARAM}{ An instance of \code{BiocParallelParam} class, e.g. MulticoreParam, SnowParam, SerialParam, to facilitate parallel computing. If using Unix, MulticoreParam is recommended. Customized options within \code{BiocParallelParam} class is allowed. If not specified, the default back-end is retrieve.}
 }
 
 \value{
-  \item{\code{ct_TDR_bio_smry}}{A data frame related to cell type specific target TDR.}
-  \item{\code{TDR_bio_smry}}{A data frame related to target TDR.}
-  \item{\code{ct_PWR_bio_smry}}{A data frame related to cell type specific target power.}
-  \item{\code{PWR_bio_smry}}{A data frame related to target power.}
-  \item{\code{PWR_strata_bio_smry}}{A data frame related to target power by gene expression stratification.}
-  \item{\code{PWR_strata_ct_bio_smry}}{A data frame related to cell type specific target power by gene expression stratification.}
-  \item{\code{ct_FDC_bio_smry}}{A data frame related to cell type specific  target FDC.}
-  \item{\code{FDC_bio_smry}}{A data frame related to target FDC.}
+  \item{\code{ct_TDR_bio_smry}}{Cell-type-specific target TDR.}
+  \item{\code{TDR_bio_smry}}{Average target TDR.}
+  \item{\code{ct_PWR_bio_smry}}{Cell-type-specific target power.}
+  \item{\code{PWR_bio_smry}}{Average target power.}
+  \item{\code{PWR_strata_ct_bio_smry}}{Cell type specific target power by gene expression stratification.}
+  \item{\code{PWR_strata_bio_smry}}{Average target power by gene expression stratification.}
+  \item{\code{ct_FDC_bio_smry}}{Cell type specific target FDC.}
+  \item{\code{FDC_bio_smry}}{Average target FDC.}
 }
 \description{
 This function conducts simulations with various user-defined study design

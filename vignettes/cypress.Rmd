@@ -115,11 +115,11 @@ ASD_prop
 
 **Option 2**: Users do not have pilot RNA-seq data for csDE analysis, and wish to use existing studies for parameter estimation and conduct customized downstream simulation. cypress provides 3 real datasets for estimating the parameters:
 
-* ``IAD``(GSE60424): Whole transcriptome signatures of 6 immune cell types, including neutrophils, monocytes, B cells, CD4 T cells, CD8 T cells, and natural killer cells. 
+* ``IAD``: Immune-related disease (IAD) study (GSE60424). Whole transcriptome signatures of 6 immune cell types, including neutrophils, monocytes, B cells, CD4 T cells, CD8 T cells, and natural killer cells. 
 
-* ``ASD``: The bulk RNA-seq data in a large autism spectrum disorder (ASD) study. The study includes 251 samples of frontal/temporal cortex and cerebellum brain regions. Samples are from 48 ASD subjects versus 49 controls.
+* ``ASD``: The bulk RNA-seq data in a large autism spectrum disorder (ASD) study. The study includes 251 samples of frontal/temporal cortex and cerebellum brain regions. Samples are from 24 ASD subjects versus 24 controls.
 
-* ``IBD``(GSE57945): The ileal transcriptome in pediatric inflammatory bowel disease (IBD). This dataset includes a cohort of 359 treatment-naïve pediatric patients with Crohn’s disease (CD, n=213), ulcerative colitis (UC, n=60) and healthy controls (n=41).
+* ``IBD``: The ileal transcriptome in pediatric inflammatory bowel disease(IBD) study (GSE57945). This dataset includes a cohort of 359 treatment-naïve pediatric patients with Crohn’s disease (CD, n=213), ulcerative colitis (UC, n=60) and healthy controls (n=41).
 
 
 **Option 3**: Users have no pilot data to provide but wish to see results generative based on our own simulation, and have some quick experimental design references to check. 

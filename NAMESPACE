@@ -13,7 +13,7 @@ exportMethods("getcypress", "setcypress")
 
 import('dplyr')
 import('TOAST')
-import('DESeq2')
+importFrom('DESeq2',"DESeqDataSetFromMatrix","DESeq","results")
 importFrom('rlang', "!!",":=")
 importFrom('mvtnorm',"dmvnorm")
 importFrom('sirt',"dirichlet.mle","dirichlet.simul")

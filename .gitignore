@@ -11,3 +11,5 @@ vignettes/*.pdf
 .Rproj.user
 .gitignore.save
 /docs/
+/doc/
+/Meta/

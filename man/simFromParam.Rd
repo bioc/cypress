@@ -11,7 +11,7 @@ simFromParam(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
              DEmethod = "TOAST", BPPARAM=bpparam())
 }
 \arguments{
-  \item{n_sim}{Total number of iterations users wish to conduct. Default to 3}
+  \item{n_sim}{The total number of iterations users wish to conduct. Default to 3. In simulation results, it is set to 20.}
   \item{n_gene}{Total number of genetic features users with to conduct. Default
   to 30000. Must be greater than or equal to 1000.}
   \item{DE_pct}{Percentage of DEG on each cell type. Default to 0.05.}
@@ -25,7 +25,7 @@ simFromParam(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
   \item{lfc_target}{Target effect size, should be greater than or equal to 0.
     The absolute LFC lower than this value will be treated as None-DEGs.
     Default to 0.5}
-  \item{fdr_thred}{Adjusted p value threshold, should not be below 0 or exceed 1.  default to 0.1}
+  \item{fdr_thred}{Adjusted p value threshold. The parameter value should be within the range (0, 1). Default to 0.1}
   \item{DEmethod}{Differential expression (DE)  methods available include 'TOAST', 'DESeq2', and 'CeDAR'.
   The default method is 'TOAST'}
   \item{BPPARAM}{ An instance of \code{BiocParallelParam} class, e.g. MulticoreParam, SnowParam, SerialParam, to facilitate parallel computing. If using Unix, MulticoreParam is recommended. Customized options within \code{BiocParallelParam} class is allowed. If not specified, the default back-end is retrieve.}
@@ -34,19 +34,14 @@ simFromParam(n_sim = 3, n_gene = 30000, DE_pct = 0.05,
 }
 
 \value{
-  \item{\code{ct_TDR_bio_smry}}{A data frame related to cell type specific
-   target TDR.}
-  \item{\code{TDR_bio_smry}}{A data frame related to target TDR.}
-  \item{\code{ct_PWR_bio_smry}}{A data frame related to cell type specific
-   target power.}
-  \item{\code{PWR_bio_smry}}{A data frame related to target power.}
-  \item{\code{PWR_strata_bio_smry}}{A data frame related to target power by
-   gene expression stratification.}
-  \item{\code{PWR_strata_ct_bio_smry}}{A data frame related to cell type
-   specific target power by gene expression stratification.}
-  \item{\code{ct_FDC_bio_smry}}{A data frame related to cell type specific
-   target FDC.}
-  \item{\code{FDC_bio_smry}}{A data frame related to target FDC.}
+  \item{\code{ct_TDR_bio_smry}}{Cell-type-specific target TDR.}
+  \item{\code{TDR_bio_smry}}{Average target TDR.}
+  \item{\code{ct_PWR_bio_smry}}{Cell-type-specific target power.}
+  \item{\code{PWR_bio_smry}}{Average target power.}
+  \item{\code{PWR_strata_ct_bio_smry}}{Cell type specific target power by gene expression stratification.}
+  \item{\code{PWR_strata_bio_smry}}{Average target power by gene expression stratification.}
+  \item{\code{ct_FDC_bio_smry}}{Cell type specific target FDC.}
+  \item{\code{FDC_bio_smry}}{Average target FDC.}
 }
 \description{
 This function conducts simulations with various user-defined study design
@@ -54,9 +49,9 @@ parameters, including but not limited to sample size, and log fold change.)
 }
 \details{
   \itemize{
-    \item \code{GSE60424:} Whole transcriptome signatures of 6 immune cell subsets. The patients were drawn from subjects with a range of immune-related diseases.
-    \item \code{IBD:} Inflammatory Bowel Disease
-    \item \code{ASD:} Autism Spectrum Disorder.
+    \item \code{GSE60424:} Immune-related disease (IAD) study. Whole transcriptome signatures of 6 immune cell subsets. The patients were drawn from subjects with a range of immune-related diseases.
+    \item \code{IBD:} data in pediatric inflammatory bowel disease(IBD) study
+    \item \code{ASD:} data in a large autism spectrum disorder (ASD) study
   }
 }
 \examples{

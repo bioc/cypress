@@ -1,30 +1,24 @@
 
-
 \name{ibd_propPower}
-\alias{ibd_propPower}
 
+\alias{ibd_propPower}
 \alias{quickPowerIBD}
 \alias{ibdPower}
 
 
 \docType{data}
-\title{Power calculation results from IBD data with cell type proportion}
+\title{Power calculation results from pediatric inflammatory bowel disease (IBD) study (GSE57945)}
 \format{
 A S4 object.
    \describe{
-  \item{\code{ct_TDR_bio_smry}}{A data frame related to cell type specific
-   target TDR.}
-  \item{\code{TDR_bio_smry}}{A data frame related to target TDR.}
-  \item{\code{ct_PWR_bio_smry}}{A data frame related to cell type specific
-   target power.}
-  \item{\code{PWR_bio_smry}}{A data frame related to target power.}
-  \item{\code{PWR_strata_bio_smry}}{A data frame related to target power by
-   gene expression stratification.}
-  \item{\code{PWR_strata_ct_bio_smry}}{A data frame related to cell type
-   specific target power by gene expression stratification.}
-  \item{\code{ct_FDC_bio_smry}}{A data frame related to cell type specific
-   target FDC.}
-  \item{\code{FDC_bio_smry}}{A data frame related to target FDC.}
+  \item{\code{ct_TDR_bio_smry}}{Cell-type-specific target TDR.}
+  \item{\code{TDR_bio_smry}}{Average target TDR.}
+  \item{\code{ct_PWR_bio_smry}}{Cell-type-specific target power.}
+  \item{\code{PWR_bio_smry}}{Average target power.}
+  \item{\code{PWR_strata_ct_bio_smry}}{Cell type specific target power by gene expression stratification.}
+  \item{\code{PWR_strata_bio_smry}}{Average target power by gene expression stratification.}
+  \item{\code{ct_FDC_bio_smry}}{Cell type specific target FDC.}
+  \item{\code{FDC_bio_smry}}{Average target FDC.}
   }
 }
 
@@ -32,8 +26,8 @@ A S4 object.
 data('quickPowerIBD')
 }
 \description{
-pre-calculated power evaluation results from IBD datasets. The obtained results
-can be used to create plots from plot functions.
+Pre-calculated power evaluation results from pediatric inflammatory bowel disease (IBD) study (GSE57945). The results
+can be used to create plots using plot functions (\code{plotFDC}, \code{plotPower}, \code{plotTDR}).
 }
 \value{
 One S4 object.
