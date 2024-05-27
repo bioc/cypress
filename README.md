@@ -18,13 +18,4 @@ BiocManager::install("cypress")
 
 ```
 
-
-You can install the development version of cypress from [GitHub](https://github.com/) with:
-
-``` r
-# install.packages("devtools")
-# devtools::install_github("renlyly/cypress")
-
-```
-
 ``cypress`` is currently on Bioconductor at https://bioconductor.org/packages/cypress/.
