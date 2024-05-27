@@ -15,7 +15,7 @@ Changes in version 0.99.24 (2024-04-23)
 
 * update new methods for cedar and deseq2
 
-Changes in version 1.2.1 (2024-05-27)
+Changes in version 1.1.1 (2024-05-27)
 
 * Reduce dependent packages
 * Revise the rd file
